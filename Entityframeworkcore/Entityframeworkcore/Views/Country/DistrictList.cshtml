@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Entityframeworkcore.District>
+
+@{
+    ViewData["Title"] = "DistrictList";
+}
+
+<h1>DistrictList</h1>
+
+<p>
+    <a asp-action="CreateDistrict">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DistrictName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CountryName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DistrictName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountryName)
+            </td>
+            <td>
+                    @Html.ActionLink("Edit", "EditDistrict", new { id=item.Id}) 
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "DeteteDistrict", new { id=item.Id})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
